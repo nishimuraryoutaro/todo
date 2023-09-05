@@ -19,8 +19,8 @@ return new class extends Migration
            $table->unsignedBigInteger('user_id');
            //論理削除を定義
            $table->softDeletes();
-           $table->timestamp('update_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
-           $table->timestamp('create_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
+           $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+           $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
            //user_idに入るのはusersのidに属するの
            $table->foreign('user_id')->references('id')->on('users');
         });
